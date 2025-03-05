@@ -44,7 +44,7 @@ function CreateGroup() {
         };
 
         try {
-            const response = await fetch('http://betbet.website/groups/createGroup', {
+            const response = await fetch('http://api.peerfeedback.betbet.website/groups/createGroup', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(groupData),
@@ -69,7 +69,7 @@ function CreateGroup() {
         };
 
         try {
-            const response = await fetch('http://betbet.website/teams/createTeam', {
+            const response = await fetch('http://api.peerfeedback.betbet.website/teams/createTeam', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(teamData),
@@ -89,7 +89,7 @@ function CreateGroup() {
         if (groupName.trim() === '' || !groupID) return;
 
         try {
-            const response = await fetch('http://betbet.website/groups/updateGroupName', {
+            const response = await fetch('http://api.peerfeedback.betbet.website/groups/updateGroupName', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ GroupID: groupID, GroupName: groupName }),
@@ -104,7 +104,7 @@ function CreateGroup() {
     const handleDeleteTeam = async (teamID) => {
         if (!teamID) return;
         try {
-            const response = await fetch(`http://betbet.website/teams/deleteTeam/${teamID}/${groupID}`, {
+            const response = await fetch(`http://api.peerfeedback.betbet.website/teams/deleteTeam/${teamID}/${groupID}`, {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
             });

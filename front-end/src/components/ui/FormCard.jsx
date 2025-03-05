@@ -24,7 +24,7 @@ function FormCard({ formData, isMyForm, isCompleted, onDelete, currentUserID }) 
   useEffect(() => {
     const fetchGroupData = async () => {
       try {
-        const response = await fetch(`http://betbet.website/groups/${formID}`);
+        const response = await fetch(`http://api.peerfeedback.betbet.website/groups/${formID}`);
         const data = await response.json();
         if (data.length > 0 && data[0].GroupID) {
           setGroupID(data[0].GroupID); // Set the first group's ID (adjust if multiple groups are relevant)
@@ -47,7 +47,7 @@ function FormCard({ formData, isMyForm, isCompleted, onDelete, currentUserID }) 
 
       try {
         const response = await fetch(
-          `http://betbet.website/users/getCreatorPermissions?CreatorID=${currentUserID}&GroupID=${groupID}`
+          `http://api.peerfeedback.betbet.website/users/getCreatorPermissions?CreatorID=${currentUserID}&GroupID=${groupID}`
         );
         if (!response.ok) {
           throw new Error(

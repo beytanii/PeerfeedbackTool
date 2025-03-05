@@ -75,7 +75,7 @@ const Dependencies = () => {
                 </ListItem>
             </List>
             <Typography variant="body1">
-                The backend server should now be running at betbet.website.
+                The backend server should now be running at api.peerfeedback.betbet.website.
             </Typography>
 
             <Typography variant="h6" gutterBottom style={{ marginTop: '30px' }}>
@@ -96,7 +96,7 @@ const Dependencies = () => {
                 Once the frontend server is running, open your browser and navigate to:
             </Typography>
             <Typography variant="body1" style={{ fontWeight: 'bold' }}>
-                <a href="http://localhost:5173" target="_blank" rel="noopener noreferrer">http://localhost:5173</a>
+                <a href="http://peerfeedback.betbet.website:5173" target="_blank" rel="noopener noreferrer">http://peerfeedback.betbet.website:5173</a>
             </Typography>
 
         </Container>

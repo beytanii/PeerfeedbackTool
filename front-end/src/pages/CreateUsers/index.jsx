@@ -41,7 +41,7 @@ function CreateUsers() {
                 console.log("CreatorID", creatorID);
 
                 // Set creator role
-                const creatorRole = await fetch(`http://betbet.website/users/setCreator/${storedGroupID}`, {
+                const creatorRole = await fetch(`http://api.peerfeedback.betbet.website/users/setCreator/${storedGroupID}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -62,7 +62,7 @@ function CreateUsers() {
 
     const fetchGroupName = async (groupID) => {
         try {
-            const response = await fetch(`http://betbet.website/groups/groupname/${groupID}`);
+            const response = await fetch(`http://api.peerfeedback.betbet.website/groups/groupname/${groupID}`);
             if (!response.ok) throw new Error('Failed to fetch group name');
 
             const data = await response.json();
@@ -75,7 +75,7 @@ function CreateUsers() {
 
     const fetchCreators = async (groupID) => {
         try {
-            const response = await fetch(`http://betbet.website/users/getCreators/${groupID}`);
+            const response = await fetch(`http://api.peerfeedback.betbet.website/users/getCreators/${groupID}`);
             if (!response.ok) throw new Error('Failed to fetch creators');
             const data = await response.json();
             const fetchedCreators = data.map((user) =>
@@ -89,7 +89,7 @@ function CreateUsers() {
 
     const fetchResponders = async (groupID) => {
         try {
-            const response = await fetch(`http://betbet.website/users/getResponders/${groupID}`);
+            const response = await fetch(`http://api.peerfeedback.betbet.website/users/getResponders/${groupID}`);
             if (!response.ok) throw new Error('Failed to fetch responders');
             const data = await response.json();
             const fetchedResponder = data.map((user) =>
@@ -103,7 +103,7 @@ function CreateUsers() {
 
     const fetchTeams = async (groupID) => {
         try {
-            const response = await fetch(`http://betbet.website/teams/${groupID}`);
+            const response = await fetch(`http://api.peerfeedback.betbet.website/teams/${groupID}`);
             if (!response.ok) throw new Error('Failed to fetch teams');
             const data = await response.json();
             setTeams(data);
@@ -120,7 +120,7 @@ function CreateUsers() {
         }
 
         try {
-            const userResponse = await fetch(`http://betbet.website/users/searchUser?email=${creatorEmail}`, {
+            const userResponse = await fetch(`http://api.peerfeedback.betbet.website/users/searchUser?email=${creatorEmail}`, {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             });
@@ -131,7 +131,7 @@ function CreateUsers() {
 
             if (user) {
 
-                const creatorRole = await fetch(`http://betbet.website/users/setCreator/${groupID}`, {
+                const creatorRole = await fetch(`http://api.peerfeedback.betbet.website/users/setCreator/${groupID}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -179,7 +179,7 @@ function CreateUsers() {
         }
 
         try {
-            const responderRole = await fetch(`http://betbet.website/users/searchUser?email=${responderEmail}`, {
+            const responderRole = await fetch(`http://api.peerfeedback.betbet.website/users/searchUser?email=${responderEmail}`, {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             });
@@ -204,7 +204,7 @@ function CreateUsers() {
                 //     teamName: selectedTeamEntry.TeamName,
                 // });
 
-                const response = await fetch(`http://betbet.website/users/setResponder/${groupID}`, {
+                const response = await fetch(`http://api.peerfeedback.betbet.website/users/setResponder/${groupID}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -240,7 +240,7 @@ function CreateUsers() {
     const handleDeleteUser = async (userID, username, userType) => {
         // console.log("Deleting user:", userID, username, userType);
         try {
-            const response = await fetch(`http://betbet.website/users/deleteFromGroup/${groupID}/${userID}`, {
+            const response = await fetch(`http://api.peerfeedback.betbet.website/users/deleteFromGroup/${groupID}/${userID}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

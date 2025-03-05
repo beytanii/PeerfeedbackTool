@@ -1,6 +1,6 @@
 export const getUserProfile = async () => {
   try {
-    const profileResponse = await fetch('http://betbet.website/profile', {
+    const profileResponse = await fetch('http://api.peerfeedback.betbet.website/profile', {
       method: 'GET',
       credentials: 'include', // This is crucial for sending cookies
     });
@@ -20,7 +20,7 @@ export const getUserProfile = async () => {
 
     // Fetch user access level using the nickname
     const accessResponse = await fetch(
-      `http://betbet.website/users/username/${nickname}`,
+      `http://api.peerfeedback.betbet.website/users/username/${nickname}`,
       {
         method: 'GET',
         credentials: 'include', // Ensure credentials are included in this request

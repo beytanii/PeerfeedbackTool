@@ -20,7 +20,7 @@ const ResponsesTable = () => {
     const fetchGroupName = async () => {
       try {
         // console.log("Fetching group name...");
-        const response = await fetch(`http://betbet.website/groups/${formID}`, {
+        const response = await fetch(`http://api.peerfeedback.betbet.website/groups/${formID}`, {
           method: "GET",
         });
         const data = await response.json();
@@ -39,7 +39,7 @@ const ResponsesTable = () => {
       if (isFetched) return; // Prevent additional fetch calls if already fetched
       try {
         // console.log("Fetching responses...");
-        const response = await fetch("http://betbet.website/answers/getAllAnswersByForm", {
+        const response = await fetch("http://api.peerfeedback.betbet.website/answers/getAllAnswersByForm", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

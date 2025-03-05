@@ -24,4 +24,4 @@ The team consists of:
 1) cd front-end
 2) Run "npm i"
 3) Run "npm run dev"
-3) Open http://betbet.website/login
+3) Open http://api.peerfeedback.betbet.website/login

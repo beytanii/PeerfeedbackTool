@@ -23,7 +23,7 @@ function GroupsPage() {
 
     const fetchGroupsData = async () => {
       try {
-        const response = await fetch(`http://betbet.website/groups/${formID}`);
+        const response = await fetch(`http://api.peerfeedback.betbet.website/groups/${formID}`);
         const data = await response.json();
         // console.log("Fetched groups successfully:", data);
         setGroups(data || []);
@@ -50,7 +50,7 @@ function GroupsPage() {
   const fetchTeamsData = async (groupId) => {
     try {
       // console.log(`Fetching teams for group ID: ${groupId}`);
-      const response = await fetch(`http://betbet.website/teams/${groupId}`);
+      const response = await fetch(`http://api.peerfeedback.betbet.website/teams/${groupId}`);
       const data = await response.json();
       // console.log(`Fetched teams for group ${groupId} successfully:`, data);
 

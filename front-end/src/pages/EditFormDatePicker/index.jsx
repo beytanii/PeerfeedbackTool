@@ -27,7 +27,7 @@ function EditFormDatePicker() {
 
     const fetchFormDates = async (formID) => {
         try {
-            const response = await fetch(`http://betbet.website/forms/id/${formID}`);
+            const response = await fetch(`http://api.peerfeedback.betbet.website/forms/id/${formID}`);
             if (!response.ok) {
                 throw new Error("Failed to fetch form data");
             }

@@ -47,7 +47,7 @@ function AdminPage() {
   const fetchAllUsers = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://betbet.website/users/all', {
+      const response = await fetch('http://api.peerfeedback.betbet.website/users/all', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
@@ -78,7 +78,7 @@ function AdminPage() {
     console.log("Updating user:", userId, "to access level:", newAccessLevel);
 
     try {
-      const response = await fetch(`http://betbet.website/users/access-level`, {
+      const response = await fetch(`http://api.peerfeedback.betbet.website/users/access-level`, {
         method: 'POST', // Using POST since our endpoint was designed as POST
         headers: {
           'Content-Type': 'application/json'

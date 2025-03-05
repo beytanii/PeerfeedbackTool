@@ -25,7 +25,7 @@ function TeamsPage() {
     const fetchTeamName = async () => {
       try {
         console.log("Fetching team name with groupID:", storedGroupID, "teamID:", teamID);
-        const response = await fetch(`http://betbet.website/teams/teamName?groupID=${storedGroupID}&teamID=${teamID}`);
+        const response = await fetch(`http://api.peerfeedback.betbet.website/teams/teamName?groupID=${storedGroupID}&teamID=${teamID}`);
         const data = await response.json();
 
         if (data.TeamName) {
@@ -43,7 +43,7 @@ function TeamsPage() {
 
     const fetchUsersData = async () => {
       try {
-        const response = await fetch(`http://betbet.website/teams/users?teamID=${teamID}`);
+        const response = await fetch(`http://api.peerfeedback.betbet.website/teams/users?teamID=${teamID}`);
         const data = await response.json();
         const transformedUsers = data.map(user => ({
           userID: user.UserID,

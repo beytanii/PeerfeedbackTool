@@ -18,8 +18,8 @@ const OAuth = () => {
                 To start the login process, navigate to:
             </Typography>
             <Typography variant="body1" paragraph style={{ fontStyle: 'italic' }}>
-                <a href="http://betbet.website/login" target="_blank" rel="noopener noreferrer">
-                    http://betbet.website/login
+                <a href="http://api.peerfeedback.betbet.website/login" target="_blank" rel="noopener noreferrer">
+                    http://api.peerfeedback.betbet.website/login
                 </a>
             </Typography>
             <Typography variant="body1" paragraph>
@@ -33,8 +33,8 @@ const OAuth = () => {
                 The application pulls all user data from the following endpoint:
             </Typography>
             <Typography variant="body1" paragraph style={{ fontStyle: 'italic' }}>
-                <a href="http://betbet.website/profile" target="_blank" rel="noopener noreferrer">
-                    http://betbet.website/profile
+                <a href="http://api.peerfeedback.betbet.website/profile" target="_blank" rel="noopener noreferrer">
+                    http://api.peerfeedback.betbet.website/profile
                 </a>
             </Typography>
             <Typography variant="body1" paragraph>

@@ -75,7 +75,7 @@ function DashboardPage() {
 
     try {
       const pendingResponse = await fetch(
-        `http://betbet.website/forms/user/${userData.UserID}`
+        `http://api.peerfeedback.betbet.website/forms/user/${userData.UserID}`
       );
       const pendingData = await pendingResponse.json();
       const filteredPendingData = pendingData.filter(
@@ -85,7 +85,7 @@ function DashboardPage() {
       setPendingForms(filteredPendingData.reverse() || []);
 
       const createdResponse = await fetch(
-        `http://betbet.website/forms/creator/${userData.UserID}`
+        `http://api.peerfeedback.betbet.website/forms/creator/${userData.UserID}`
       );
       const createdData = await createdResponse.json();
 
@@ -105,7 +105,7 @@ function DashboardPage() {
   const handleDeleteForm = async (formID) => {
     if (window.confirm('Are you sure you want to delete this form?')) {
       try {
-        const response = await fetch(`http://betbet.website/forms/delete`, {
+        const response = await fetch(`http://api.peerfeedback.betbet.website/forms/delete`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',

@@ -17,7 +17,7 @@ const LoginArea = () => {
 
         try {
             const response = await fetch(
-                `http://betbet.website/login?username=${username}&password=${password}`,
+                `http://api.peerfeedback.betbet.website/login?username=${username}&password=${password}`,
                 {
                     method: 'GET',
                     headers: {

@@ -2,7 +2,7 @@ const express = require("express");
 var cors = require("cors");
 const app = express();
 
-const allowedOrigins = ['http://localhost:5173'];
+const allowedOrigins = ['http://peerfeedback.betbet.website:5173'];
 
 app.use(cors({
   origin: allowedOrigins, // Allow only the React app origin
@@ -32,7 +32,7 @@ const config = {
   authRequired: true, // Require authentication on each access
   auth0Logout: true,
   secret: 'a long, randomly-generated string stored in env',
-  baseURL: 'http://betbet.website',
+  baseURL: 'http://api.peerfeedback.betbet.website',
   clientID: 'Zze2CJFNGtgqYvYAKiFWjTuNdx32Gk6d',
   issuerBaseURL: 'https://dev-z2llo60h8iwncw7w.us.auth0.com',
   authorizationParams: {
@@ -48,14 +48,14 @@ app.use(auth(config));
 app.get('/', (req, res) => {
   console.log(req.oidc.isAuthenticated());
   if (req.oidc.isAuthenticated()) {
-    res.redirect('http://localhost:5173/')
+    res.redirect('http://peerfeedback.betbet.website:5173/')
   } else {
-    res.redirect('http://betbet.website/login')
+    res.redirect('http://api.peerfeedback.betbet.website/login')
   }
 });
 
 app.get('/logout', (req, res) => {
-  res.oidc.logout({ returnTo: 'http://betbet.website' }); // Adjust 'returnTo' URL as needed
+  res.oidc.logout({ returnTo: 'http://api.peerfeedback.betbet.website' }); // Adjust 'returnTo' URL as needed
 });
 
 // Profile route to get user information
