@@ -90,6 +90,15 @@ app.get('/logout', (req, res) => {
   res.oidc.logout({ returnTo: 'https://peerfeedback.betbet.website' });  //  FIXED: Redirects to frontend
 });
 
+// Profile route to get user information
+app.get('/profile', (req, res) => {
+  if (req.oidc.isAuthenticated()) {
+    res.json(req.oidc.user); // Sends user info as JSON
+  } else {
+    res.status(401).json({ message: 'User is not authenticated' });
+  }
+});
+
 //  FIX: Handle `/callback` route (Auth0 needs this)
 app.get('/callback', (req, res) => {
   res.redirect('/');

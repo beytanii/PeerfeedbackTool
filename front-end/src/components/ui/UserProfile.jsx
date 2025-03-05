@@ -23,6 +23,10 @@ function UserProfile() {
         fetchUserData();
     }, []);
 
+    const handleLogout = () => {
+        logout({ returnTo: 'https://peerfeedback.betbet.website' });
+      };
+
     if (username) {
         return (
             <div className="userProfile">
