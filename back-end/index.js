@@ -4,7 +4,7 @@ const app = express();
 
 const allowedOrigins = [
   'https://peerfeedback.betbet.website',  // Production frontend
-  'http://localhost:5173'                 // Local development frontend
+  // 'http://localhost:5173'                 // Local development frontend
 ];
 
 app.use(cors({
