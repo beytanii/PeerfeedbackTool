@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   server: {
     host: true, // Allows external access
-    // allowedHosts: ['peerfeedback.betbet.website'],
+    allowedHosts: ['peerfeedback.betbet.website'],
     port: 5173,
     hmr: false,
   },
