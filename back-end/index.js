@@ -2,14 +2,15 @@ const express = require("express");
 var cors = require("cors");
 const app = express();
 
-const allowedOrigins = ['http://peerfeedback.betbet.website:5173'];
+const allowedOrigins = [
+  'https://peerfeedback.betbet.website',  // Production frontend
+  'http://localhost:5173'                 // Local development frontend
+];
 
 app.use(cors({
-  origin: allowedOrigins, // Allow only the React app origin
-  credentials: true,      // Allow credentials (cookies, authorization headers)
+  origin: allowedOrigins,
+  credentials: true,
 }));
-
-app.use(express.json());
 
 // Import routes
 const userRoutes = require('./routes/userRoutes');
@@ -32,7 +33,7 @@ const config = {
   authRequired: true, // Require authentication on each access
   auth0Logout: true,
   secret: 'a long, randomly-generated string stored in env',
-  baseURL: 'http://peerfeedback.betbet.website',
+  baseURL: 'http://api.peerfeedback.betbet.website',
   clientID: 'Zze2CJFNGtgqYvYAKiFWjTuNdx32Gk6d',
   issuerBaseURL: 'https://dev-z2llo60h8iwncw7w.us.auth0.com',
   authorizationParams: {
