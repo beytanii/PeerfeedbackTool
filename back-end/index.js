@@ -33,7 +33,7 @@ const config = {
   authRequired: true, // Require authentication on each access
   auth0Logout: true,
   secret: 'a long, randomly-generated string stored in env',
-  baseURL: 'http://api.peerfeedback.betbet.website',
+  baseURL: 'https://api.peerfeedback.betbet.website',
   clientID: 'Zze2CJFNGtgqYvYAKiFWjTuNdx32Gk6d',
   issuerBaseURL: 'https://dev-z2llo60h8iwncw7w.us.auth0.com',
   authorizationParams: {
@@ -49,14 +49,14 @@ app.use(auth(config));
 app.get('/', (req, res) => {
   console.log(req.oidc.isAuthenticated());
   if (req.oidc.isAuthenticated()) {
-    res.redirect('http://peerfeedback.betbet.website:5173/')
+    res.redirect('https://peerfeedback.betbet.website:5173/')
   } else {
-    res.redirect('http://api.peerfeedback.betbet.website/login')
+    res.redirect('https://api.peerfeedback.betbet.website/login')
   }
 });
 
 app.get('/logout', (req, res) => {
-  res.oidc.logout({ returnTo: 'http://api.peerfeedback.betbet.website' }); // Adjust 'returnTo' URL as needed
+  res.oidc.logout({ returnTo: 'https://api.peerfeedback.betbet.website' }); // Adjust 'returnTo' URL as needed
 });
 
 // Profile route to get user information

@@ -23,7 +23,7 @@ const App = () => {
   // Get CreatorID using GroupID
   const fetchCreatorID = async (groupID) => {
     try {
-      const response = await fetch(`http://api.peerfeedback.betbet.website/groups/getCreators?GroupId=${groupID}`);
+      const response = await fetch(`https://api.peerfeedback.betbet.website/groups/getCreators?GroupId=${groupID}`);
       if (!response.ok) {
         throw new Error('Failed to fetch creator ID');
       }
@@ -280,7 +280,7 @@ const App = () => {
     // console.log("Form Data:", formData);
 
     try {
-      const response = await fetch("http://api.peerfeedback.betbet.website/forms/insert", {
+      const response = await fetch("https://api.peerfeedback.betbet.website/forms/insert", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

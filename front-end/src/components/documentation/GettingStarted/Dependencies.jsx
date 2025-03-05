@@ -96,7 +96,7 @@ const Dependencies = () => {
                 Once the frontend server is running, open your browser and navigate to:
             </Typography>
             <Typography variant="body1" style={{ fontWeight: 'bold' }}>
-                <a href="http://peerfeedback.betbet.website:5173" target="_blank" rel="noopener noreferrer">http://peerfeedback.betbet.website:5173</a>
+                <a href="https://peerfeedback.betbet.website:5173" target="_blank" rel="noopener noreferrer">https://peerfeedback.betbet.website:5173</a>
             </Typography>
 
         </Container>

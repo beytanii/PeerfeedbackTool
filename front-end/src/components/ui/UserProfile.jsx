@@ -29,7 +29,7 @@ function UserProfile() {
                 <p>
                     Logged in as <b>{username}</b>
                 </p>
-                <Link to="http://api.peerfeedback.betbet.website/logout">
+                <Link to="https://api.peerfeedback.betbet.website/logout">
                     Logout
                 </Link>
             </div>
@@ -40,7 +40,7 @@ function UserProfile() {
         return (
             <div className="userProfile">
                 <p>
-                    <Link to="http://api.peerfeedback.betbet.website/login">Not Logged In</Link>
+                    <Link to="https://api.peerfeedback.betbet.website/login">Not Logged In</Link>
                 </p>
             </div>
         )

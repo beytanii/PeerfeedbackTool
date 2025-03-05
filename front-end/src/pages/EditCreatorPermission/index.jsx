@@ -28,7 +28,7 @@ function EditCreator() {
 
     const fetchGroupName = async (groupID) => {
         try {
-            const response = await fetch(`http://api.peerfeedback.betbet.website/groups/groupname/${groupID}`);
+            const response = await fetch(`https://api.peerfeedback.betbet.website/groups/groupname/${groupID}`);
             if (!response.ok) throw new Error('Failed to fetch group name');
 
             const data = await response.json();
@@ -41,7 +41,7 @@ function EditCreator() {
 
     const fetchCreators = async (groupID) => {
         try {
-            const response = await fetch(`http://api.peerfeedback.betbet.website/users/getCreators/${groupID}`);
+            const response = await fetch(`https://api.peerfeedback.betbet.website/users/getCreators/${groupID}`);
             if (!response.ok) throw new Error('Failed to fetch Creators');
 
             const data = await response.json();

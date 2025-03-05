@@ -6,7 +6,7 @@ async function getUserProfile() {
 
     try {
         // Fetch user profile data
-        const profileResponse = await fetch('http://api.peerfeedback.betbet.website/profile', {
+        const profileResponse = await fetch('https://api.peerfeedback.betbet.website/profile', {
             method: 'GET',
             credentials: 'include',
         });
@@ -26,7 +26,7 @@ async function getUserProfile() {
 
         // Fetch user access level using the nickname
         const accessResponse = await fetch(
-            `http://api.peerfeedback.betbet.website/users/username/${nickname}`,
+            `https://api.peerfeedback.betbet.website/users/username/${nickname}`,
             {
                 method: 'GET',
                 credentials: 'include',

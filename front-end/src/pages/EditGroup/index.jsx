@@ -23,7 +23,7 @@ function EditGroup() {
         if (formID) {
             const fetchGroupID = async () => {
                 try {
-                    const response = await fetch(`http://api.peerfeedback.betbet.website/groups/getGroupIdByFormId/${formID}`);
+                    const response = await fetch(`https://api.peerfeedback.betbet.website/groups/getGroupIdByFormId/${formID}`);
                     if (!response.ok) throw new Error('Failed to fetch GroupID');
                     const data = await response.json();
                     setGroupID(data.GroupID);
@@ -46,13 +46,13 @@ function EditGroup() {
         if (groupID) {
             const fetchGroupDetails = async () => {
                 try {
-                    const groupNameResponse = await fetch(`http://api.peerfeedback.betbet.website/groups/groupname/${groupID}`);
+                    const groupNameResponse = await fetch(`https://api.peerfeedback.betbet.website/groups/groupname/${groupID}`);
                     if (!groupNameResponse.ok) throw new Error('Failed to fetch Group Name');
                     const groupNameData = await groupNameResponse.json();
                     setGroupName(groupNameData.GroupName);
                     localStorage.setItem('groupName', groupNameData.GroupName); // Store in localStorage
 
-                    const teamsResponse = await fetch(`http://api.peerfeedback.betbet.website/teams/${groupID}`);
+                    const teamsResponse = await fetch(`https://api.peerfeedback.betbet.website/teams/${groupID}`);
                     if (!teamsResponse.ok) throw new Error('Failed to fetch Teams');
                     const teamsData = await teamsResponse.json();
                     const formattedTeams = teamsData.map(team => ({ id: team.TeamID, name: team.TeamName, isEditing: false }));
@@ -77,7 +77,7 @@ function EditGroup() {
         }
 
         try {
-            const response = await fetch('http://api.peerfeedback.betbet.website/groups/updateGroupName', {
+            const response = await fetch('https://api.peerfeedback.betbet.website/groups/updateGroupName', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ function EditGroup() {
 
     const saveTeamName = async (teamID, newTeamName) => {
         try {
-            const response = await fetch('http://api.peerfeedback.betbet.website/teams/updateTeamName', {
+            const response = await fetch('https://api.peerfeedback.betbet.website/teams/updateTeamName', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -139,7 +139,7 @@ function EditGroup() {
         // console.log(groupData);
 
         try {
-            const response = await fetch('http://api.peerfeedback.betbet.website/groups/createGroup', {
+            const response = await fetch('https://api.peerfeedback.betbet.website/groups/createGroup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -175,7 +175,7 @@ function EditGroup() {
         };
 
         try {
-            const response = await fetch('http://api.peerfeedback.betbet.website/teams/createTeam', {
+            const response = await fetch('https://api.peerfeedback.betbet.website/teams/createTeam', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -203,7 +203,7 @@ function EditGroup() {
         }
 
         try {
-            const response = await fetch(`http://api.peerfeedback.betbet.website/teams/deleteTeam/${teamID}/${groupID}`, {
+            const response = await fetch(`https://api.peerfeedback.betbet.website/teams/deleteTeam/${teamID}/${groupID}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

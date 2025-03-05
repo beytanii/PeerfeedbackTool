@@ -40,7 +40,7 @@ function RebuildForm() {
 
     const getUserInfo = async (username) => {
       try {
-        const response = await fetch(`http://api.peerfeedback.betbet.website/users/username/${username}`);
+        const response = await fetch(`https://api.peerfeedback.betbet.website/users/username/${username}`);
         if (!response.ok) throw new Error(`Failed to fetch user info: ${response.statusText}`);
         const userData = await response.json();
         reviewerID = userData.UserID;
@@ -55,7 +55,7 @@ function RebuildForm() {
 
   const markFormAsCompleted = async () => {
     try {
-      const response = await fetch('http://api.peerfeedback.betbet.website/forms/markFormAsCompleted', {
+      const response = await fetch('https://api.peerfeedback.betbet.website/forms/markFormAsCompleted', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ function RebuildForm() {
   const fetchData = async (retry = false) => {
     setLoading(true); // Start loading
     try {
-      const response = await fetch(`http://api.peerfeedback.betbet.website/forms/id/${formID}`);
+      const response = await fetch(`https://api.peerfeedback.betbet.website/forms/id/${formID}`);
       if (!response.ok) throw new Error(`Failed to fetch form data: ${response.statusText}`);
       const formData = await response.json();
 
@@ -128,7 +128,7 @@ function RebuildForm() {
 
       setSurveyModel(survey);
 
-      const assignmentsResponse = await fetch(`http://api.peerfeedback.betbet.website/answers/incomplete?formID=${formID}&reviewerID=${reviewerID}`);
+      const assignmentsResponse = await fetch(`https://api.peerfeedback.betbet.website/answers/incomplete?formID=${formID}&reviewerID=${reviewerID}`);
       if (!assignmentsResponse.ok) throw new Error(`Failed to fetch assignments: ${assignmentsResponse.statusText}`);
       const assignmentsData = await assignmentsResponse.json();
 
@@ -183,7 +183,7 @@ function RebuildForm() {
     };
   
     try {
-      const response = await fetch("http://api.peerfeedback.betbet.website/answers/insert", {
+      const response = await fetch("https://api.peerfeedback.betbet.website/answers/insert", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

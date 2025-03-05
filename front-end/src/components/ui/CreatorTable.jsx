@@ -69,7 +69,7 @@ const CreatorTable = ({ users, setUsers, groupID }) => {
     // Function to send the updated permissions to the database
     const updatePermissionsInDatabase = async (CreatorID, updatedPermissions) => {
         try {
-            const response = await fetch('http://api.peerfeedback.betbet.website/users/setCreatorPermissions', {
+            const response = await fetch('https://api.peerfeedback.betbet.website/users/setCreatorPermissions', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

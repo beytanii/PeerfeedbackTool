@@ -21,7 +21,7 @@ function ResponsesPage() {
     // Fetch responses created by the user
     const fetchUserResponses = async (userID) => {
         try {
-            const response = await fetch(`http://api.peerfeedback.betbet.website/answers/responses/form?formID=${selectedFormID}&userID=${userID}`);
+            const response = await fetch(`https://api.peerfeedback.betbet.website/answers/responses/form?formID=${selectedFormID}&userID=${userID}`);
             if (!response.ok) throw new Error(`Failed to fetch responses: ${response.statusText}`);
             const responsesData = await response.json();
             // console.log("Responses Data", responsesData);
@@ -38,7 +38,7 @@ function ResponsesPage() {
     // Fetch evaluations made about the user
     const fetchUserEvaluations = async (userID) => {
         try {
-            const response = await fetch(`http://api.peerfeedback.betbet.website/answers/getuserevaluations/?formID=${selectedFormID}&userID=${userID}`);
+            const response = await fetch(`https://api.peerfeedback.betbet.website/answers/getuserevaluations/?formID=${selectedFormID}&userID=${userID}`);
             if (!response.ok) throw new Error(`Failed to fetch evaluations: ${response.statusText}`);
             const evaluationsData = await response.json();
             // console.log("Evaluations Data", evaluationsData);

@@ -30,7 +30,7 @@ const EditForm = () => {
     useEffect(() => {
         const fetchSurveyData = async () => {
             try {
-                const response = await fetch(`http://api.peerfeedback.betbet.website/forms/id/${formID}`);
+                const response = await fetch(`https://api.peerfeedback.betbet.website/forms/id/${formID}`);
                 const data = await response.json();
                 const formDetails = data.result[0];
 
@@ -256,7 +256,7 @@ const EditForm = () => {
         try {
             const assignedDate = formatDateToMySQL(startDate, 0, 0, 0); // Set to midnight
             const deadlineDate = formatDateToMySQL(endDate, 23, 59, 59); // Set to 11:59:59 PM            
-            const response = await fetch(`http://api.peerfeedback.betbet.website/forms/updateForm`, {
+            const response = await fetch(`https://api.peerfeedback.betbet.website/forms/updateForm`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
