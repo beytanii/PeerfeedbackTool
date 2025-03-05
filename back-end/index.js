@@ -36,7 +36,7 @@ const config = {
   auth0Logout: true,
   secret: 'a long, randomly-generated string stored in env',
   baseURL: 'https://api.peerfeedback.betbet.website',
-  clientID: 'Zze2CJFNGtgqYvYAKiFWjTuNdx32Gk6d',
+  clientID: '26MPhTB27FAwSxhLimmmKd8N5qZZ90qX',
   issuerBaseURL: 'https://dev-z2llo60h8iwncw7w.us.auth0.com',
   authorizationParams: {
     prompt: 'login', // Force Okta to prompt for login each time
