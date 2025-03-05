@@ -32,7 +32,7 @@ const config = {
   authRequired: true, // Require authentication on each access
   auth0Logout: true,
   secret: 'a long, randomly-generated string stored in env',
-  baseURL: 'http://api.peerfeedback.betbet.website',
+  baseURL: 'http://peerfeedback.betbet.website',
   clientID: 'Zze2CJFNGtgqYvYAKiFWjTuNdx32Gk6d',
   issuerBaseURL: 'https://dev-z2llo60h8iwncw7w.us.auth0.com',
   authorizationParams: {
