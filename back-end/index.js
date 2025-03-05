@@ -31,22 +31,45 @@ app.use('/answers', answersRoutes);
 app.use('/teams', teamRoutes);
 
 // Auth0 configuration
-// 
-
 const config = {
-  authRequired: true,  // Require authentication for all routes
-  auth0Logout: true,   // Enable logout via Auth0
+  authRequired: true, // Require authentication on each access
+  auth0Logout: true,
   secret: 'a long, randomly-generated string stored in env',
-  baseURL: 'https://api.peerfeedback.betbet.website',  //  FIXED: Should be the backend URL
+  baseURL: 'https://api.peerfeedback.betbet.website',
   clientID: 'Zze2CJFNGtgqYvYAKiFWjTuNdx32Gk6d',
   issuerBaseURL: 'https://dev-z2llo60h8iwncw7w.us.auth0.com',
   authorizationParams: {
-    prompt: 'login',
-    response_mode: 'query' //  FIXED: Ensure it's using query mode, NOT form_post
+    prompt: 'login', // Force Okta to prompt for login each time
   }
 };
 
+
+// Auth middleware (attaches /login, /logout, and /callback routes)
 app.use(auth(config));
+
+// // Root route to check login status
+// app.get('/', (req, res) => {
+//   console.log(req.oidc.isAuthenticated());
+//   if (req.oidc.isAuthenticated()) {
+//     res.redirect('https://peerfeedback.betbet.website/')
+//   } else {
+//     res.redirect('https://api.peerfeedback.betbet.website/login')
+//   }
+// });
+
+// app.get('/logout', (req, res) => {
+//   res.oidc.logout({ returnTo: 'https://api.peerfeedback.betbet.website' }); // Adjust 'returnTo' URL as needed
+// });
+
+// // Profile route to get user information
+// app.get('/profile', (req, res) => {
+//   if (req.oidc.isAuthenticated()) {
+//     res.json(req.oidc.user); // Sends user info as JSON
+//   } else {
+//     res.status(401).json({ message: 'User is not authenticated' });
+//   }
+// });
+
 
 //  FIX: Explicit `/login` route to handle direct visits
 app.get('/login', (req, res) => {
@@ -71,7 +94,6 @@ app.get('/logout', (req, res) => {
 app.get('/callback', (req, res) => {
   res.redirect('/');
 });
-
 
 // Start the server
 app.listen(1000, () => {
