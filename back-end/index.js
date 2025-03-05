@@ -2,10 +2,12 @@ const express = require("express");
 var cors = require("cors");
 const app = express();
 
-const allowedOrigins = [
-  'https://peerfeedback.betbet.website',  // Production frontend
-  // 'http://localhost:5173'                 // Local development frontend
-];
+// const allowedOrigins = [
+//   'https://peerfeedback.betbet.website',  // Production frontend
+//   // 'http://localhost:5173'                 // Local development frontend
+// ];
+
+const allowedOrigins = ['https://peerfeedback.betbet.website', 'https://api.peerfeedback.betbet.website'];
 
 app.use(cors({
   origin: allowedOrigins,
