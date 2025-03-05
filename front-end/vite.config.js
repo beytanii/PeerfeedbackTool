@@ -5,8 +5,12 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   server: {
     host: true, // Allows external access
-    allowedHosts: ['peerfeedback.betbet.website'],
+    // allowedHosts: ['peerfeedback.betbet.website'],
     port: 5173,
+    hmr: false,
+  },
+  preview: {
+    hmr: false, // Prevents WebSockets from running in preview mode
   },
   plugins: [react()],
 })
