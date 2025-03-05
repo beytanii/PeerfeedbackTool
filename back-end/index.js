@@ -31,44 +31,47 @@ app.use('/answers', answersRoutes);
 app.use('/teams', teamRoutes);
 
 // Auth0 configuration
+// 
+
 const config = {
-  authRequired: true, // Require authentication on each access
-  auth0Logout: true,
+  authRequired: true,  // Require authentication for all routes
+  auth0Logout: true,   // Enable logout via Auth0
   secret: 'a long, randomly-generated string stored in env',
-  baseURL: 'https://peerfeedback.betbet.website',
+  baseURL: 'https://api.peerfeedback.betbet.website',  //  FIXED: Should be the backend URL
   clientID: 'Zze2CJFNGtgqYvYAKiFWjTuNdx32Gk6d',
   issuerBaseURL: 'https://dev-z2llo60h8iwncw7w.us.auth0.com',
   authorizationParams: {
-    prompt: 'login' // Force Okta to prompt for login each time
+    prompt: 'login',
+    response_mode: 'query' //  FIXED: Ensure it's using query mode, NOT form_post
   }
 };
 
-
-// Auth middleware (attaches /login, /logout, and /callback routes)
 app.use(auth(config));
 
-// Root route to check login status
+//  FIX: Explicit `/login` route to handle direct visits
+app.get('/login', (req, res) => {
+  res.redirect('/');
+});
+
+//  FIX: Redirect users to correct frontend URL after login
 app.get('/', (req, res) => {
-  console.log(req.oidc.isAuthenticated());
   if (req.oidc.isAuthenticated()) {
-    res.redirect('https://peerfeedback.betbet.website:5173/')
+    res.redirect('https://peerfeedback.betbet.website/');  //  FIXED: Removed `:5173`
   } else {
-    res.redirect('https://api.peerfeedback.betbet.website/login')
+    res.redirect('https://api.peerfeedback.betbet.website/login');
   }
 });
 
+//  FIX: Ensure logout redirects correctly
 app.get('/logout', (req, res) => {
-  res.oidc.logout({ returnTo: 'https://api.peerfeedback.betbet.website' }); // Adjust 'returnTo' URL as needed
+  res.oidc.logout({ returnTo: 'https://peerfeedback.betbet.website' });  //  FIXED: Redirects to frontend
 });
 
-// Profile route to get user information
-app.get('/profile', (req, res) => {
-  if (req.oidc.isAuthenticated()) {
-    res.json(req.oidc.user); // Sends user info as JSON
-  } else {
-    res.status(401).json({ message: 'User is not authenticated' });
-  }
+//  FIX: Handle `/callback` route (Auth0 needs this)
+app.get('/callback', (req, res) => {
+  res.redirect('/');
 });
+
 
 // Start the server
 app.listen(1000, () => {
