@@ -7,13 +7,13 @@ const app = express();
 //   // 'http://localhost:5173'                 // Local development frontend
 // ];
 
-const allowedOrigins = ['https://peerfeedback.betbet.website', 'https://api.peerfeedback.betbet.website'];
+const allowedOrigins = ['https://peerfeedback.betbet.website'];
 
 app.use(cors({
   origin: allowedOrigins,
   credentials: true,
-  // methods: ['GET', 'POST', 'OPTIONS', 'DELETE', 'PUT', 'PATCH'],
-  // allowedHeaders: ['Authorization', 'Content-Type']
+  methods: ['GET', 'POST', 'OPTIONS', 'DELETE', 'PUT', 'PATCH'],
+  allowedHeaders: ['Authorization', 'Content-Type']
 }));
 
 // Import routes
