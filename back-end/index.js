@@ -12,8 +12,8 @@ const allowedOrigins = ['https://peerfeedback.betbet.website', 'https://api.peer
 app.use(cors({
   origin: allowedOrigins,
   credentials: true,
-  methods: ['GET', 'POST', 'OPTIONS', 'DELETE', 'PUT', 'PATCH'],
-  allowedHeaders: ['Authorization', 'Content-Type']
+  // methods: ['GET', 'POST', 'OPTIONS', 'DELETE', 'PUT', 'PATCH'],
+  // allowedHeaders: ['Authorization', 'Content-Type']
 }));
 
 // Import routes
