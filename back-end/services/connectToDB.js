@@ -4,7 +4,7 @@ const mysql = require('mysql2');
 const connection = mysql.createPool({
     host: 'peerfeedback.betbet.website',      // Replace with your host
     user: 'root',           // Replace with your MySQL username
-    password: 'student',    // Replace with your MySQL password
+    password: 'betbet',    // Replace with your MySQL password
     database: 'PeerFeedback' // Replace with the name of your database
 });
 
