@@ -16,7 +16,7 @@ VALUES
 ('Group A', '2024-09-20 10:30:00', 2), 
 ('Group B', '2024-09-21 14:15:00', 1);
 
--- Insert into User_list table
+-- Insert into User_List table
 INSERT INTO User_List (GroupID, UserID, UserPermission, CreatorPermissions)
 VALUES 
 (1, 1, 'Responder', NULL),  -- John as a responder

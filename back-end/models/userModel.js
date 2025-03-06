@@ -183,7 +183,7 @@ module.exports = {
 
     getCreatorPermissions: (CreatorID, GroupID) => {
         return new Promise((resolve, reject) => {
-            const query = "SELECT CreatorPermissions From User_list WHERE UserId = ? AND GroupID = ? AND UserPermission = 'Creator'";
+            const query = "SELECT CreatorPermissions From User_List WHERE UserId = ? AND GroupID = ? AND UserPermission = 'Creator'";
             db.execute(query, [CreatorID, GroupID])
                 .then(([result]) => {
                     if (result.length === 0) {
@@ -201,7 +201,7 @@ module.exports = {
 
     setCreatorPermissions: (CreatorID, Permissions, GroupID) => {
         return new Promise((resolve, reject) => {
-            const query = 'UPDATE User_list SET CreatorPermissions = ? WHERE UserID = ? and GroupID = ? and UserPermission = "Creator"';
+            const query = 'UPDATE User_List SET CreatorPermissions = ? WHERE UserID = ? and GroupID = ? and UserPermission = "Creator"';
             db.execute(query, [Permissions, CreatorID, GroupID])
                 .then(([result]) => {
                     resolve(result);
